@@ -1,12 +1,19 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
+  /* Light theme for notes app */
+  --primary: #1976d2;
+  --secondary: #424242;
+  --accent: #fbc02d;
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --text-primary: #23272e;
+  --text-secondary: #6c757d;
+  --border-color: #e0e0e0;
+  --sidebar-bg: #f8f9fa;
+  --button-bg: var(--primary);
   --button-text: #ffffff;
 }
 
@@ -101,4 +108,56 @@
     padding: 8px 16px;
     font-size: 12px;
   }
+
+  .notes-app-root {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color, #e0e0e0);
+  }
+  .main-content {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+.notes-app-root {
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+.sidebar {
+  box-shadow: 1px 0 0 0 var(--border-color);
+  z-index: 30;
+  background: var(--sidebar-bg);
+}
+
+.notes-list {
+  margin: 0;
+  padding: 0;
+}
+
+.notes-list-item.selected {
+  background: #e3f0fb !important;
+}
+
+.note-content-area {
+  width: 100%;
+  background: var(--bg-primary);
+}
+
+.note-editor input:focus, .note-editor textarea:focus {
+  outline: 2px solid var(--primary);
+  transition: outline 0.15s;
+}
+
+textarea:focus {
+  box-shadow: 0 0 0 1.5px var(--accent) inset;
 }
